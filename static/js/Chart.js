@@ -10,6 +10,24 @@ const TRENDING_MOVIES_URL = BASE_URL + '/discover/movie?sort_by=popularity.desc&
 const GENRES_URL = BASE_URL + '/genre/movie/list?' + API_KEY;
 const POPULAR_URL = BASE_URL + '/movie/top_rated?' + API_KEY;
 
+// Chart.defaults.font.size = 10;
+Chart.defaults.color = "white";
+
+
+window.onload = function(){
+    if(window.innerWidth >= 999){
+        Chart.defaults.font.size = 15;
+    }
+    else{
+        Chart.defaults.font.size = 8;
+    }
+
+    drawCharts()
+}
+
+function drawCharts(){
+
+
 fetch(TRENDING_MOVIES_URL)
     .then(response => response.json())
     .then(data => {
@@ -21,7 +39,7 @@ fetch(TRENDING_MOVIES_URL)
             datasets: [
                 {
                     label: 'Top Rated Movies',
-                    backgroundColor: '#40513b',
+                    backgroundColor: '#FFA559',
                     data: movieRatings,
                 },
             ],
@@ -45,6 +63,7 @@ fetch(TRENDING_MOVIES_URL)
             data: chartData,
             options: chartOptions,
         });
+
     });
 
 
@@ -72,7 +91,7 @@ fetch(TOP_Grossing)
                     datasets: [
                         {
                             label: 'Highest Grossing Movies',
-                            backgroundColor: '#40513b',
+                            backgroundColor: '#E5BEEC',
                             data: movieRevenues,
                         },
                     ],
@@ -121,7 +140,7 @@ fetch(GENRES_URL)
     })
     .catch(error => console.error(error));
 
-    
+
 
 // Function to create the pie chart
 function createPieChart(data) {
@@ -136,20 +155,38 @@ function createPieChart(data) {
             datasets: [{
                 data: values,
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
+                    'rgba(255, 255, 255, 1)',
+                    'rgba(0, 0, 0, 1)',
+                    'rgba(255, 0, 0, 1)',
+                    'rgba(0, 255, 0, 1)',
+                    'rgba(0, 0, 255, 1)',
+                    'rgba(255, 255, 0, 1)',
+                    'rgba(255, 0, 255, 1)',
+                    'rgba(0, 255, 255, 1)',
+                    'rgba(128, 0, 0, 1)',
+                    'rgba(0, 128, 0, 1)',
+                    'rgba(0, 0, 128, 1)',
+                    'rgba(128, 128, 0, 1)',
+                    'rgba(128, 0, 128, 1)',
+                    'rgba(0, 128, 128, 1)',
+                    'rgba(255, 128, 0, 1)',
                 ],
                 borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
+                    'rgba(255, 255, 255, 1)',
+                    'rgba(0, 0, 0, 1)',
+                    'rgba(255, 0, 0, 1)',
+                    'rgba(0, 255, 0, 1)',
+                    'rgba(0, 0, 255, 1)',
+                    'rgba(255, 255, 0, 1)',
+                    'rgba(255, 0, 255, 1)',
+                    'rgba(0, 255, 255, 1)',
+                    'rgba(128, 0, 0, 1)',
+                    'rgba(0, 128, 0, 1)',
+                    'rgba(0, 0, 128, 1)',
+                    'rgba(128, 128, 0, 1)',
+                    'rgba(128, 0, 128, 1)',
+                    'rgba(0, 128, 128, 1)',
+                    'rgba(255, 128, 0, 1)',
                 ],
                 borderWidth: 1
             }]
@@ -177,7 +214,28 @@ function createPieChart(data) {
     });
 }
 
+}
 
 
 
+const searchURL = BASE_URL + '/search/movie?' + API_KEY;
+const form = document.getElementById('form');
+const search = document.getElementById('search');
 
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const searchTerm = search.value;
+
+    if (searchTerm) {
+
+        window.location.href = `../Pages/moviesPage.html?search=${searchTerm}`;
+        // getTrendingMovies(searchURL + '&query=' + searchTerm)
+    }
+})
+
+const searchIcon = document.querySelector('.search-icon');
+  const searchInput = document.querySelector('#search');
+
+  searchIcon.addEventListener('click', () => {
+    searchInput.focus();
+  });

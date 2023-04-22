@@ -6,15 +6,15 @@
   box-sizing: border-box;
   text-decoration: none;
   scroll-padding-top: 2rem;
-  font-family: "Poppins", sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 :root {
-  --main-color: #40513b;
-  --hover-color: #609966;
-  --body-color: #9dc08b;
-  --container-color: #609966;
-  --text-color: #edf1d6;
+  --main-color: #082032;
+  --hover-color: #2C394B;
+  --body-color: #334756;
+  --container-color: #6B728E;
+  --text-color: #ececec;
 }
 
 a {
@@ -181,7 +181,7 @@ nav .content .links {
   overflow: hidden;
   max-width: 1022px;
   margin: 0 auto;
-  padding-top: 10%;
+  padding-top: 5%;
 }
 
 .carousel-container-hero {
@@ -229,16 +229,21 @@ nav .content .links {
 }
 
 .carousel-hero-title {
-  bottom: 8px;
+  bottom: 5px;
   left: 0;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
-  font-size: 40px;
+  font-size: 20px;
   text-align: center;
   padding: 10px;
   box-sizing: border-box;
   position: absolute;
+}
+@media only screen and (min-width: 768px) {
+  .carousel-hero-title {
+    font-size: 40px;
+  }
 }
 
 /* movie section */
@@ -330,11 +335,6 @@ footer {
   padding: 20%;
 }
 
-.TvShowsPage-title {
-  padding-top: 80px;
-  text-align: center;
-}
-
 /* product */
 
 .product-main {
@@ -377,6 +377,7 @@ footer {
   display: flex;
   align-items: center;
   padding: 0% 8%;
+  
 }
 
 .about-table table {
@@ -399,8 +400,12 @@ td {
 
 .about-page {
   padding: 20% 10% 10% 10%;
+  text-align: justify;
 }
 
+.about-page h2{
+  text-decoration-line: underline;
+}
 /* Responsive code start */
 
 @media only screen and (min-width: 768px) {
@@ -664,7 +669,7 @@ td {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 800px;
+  max-width: 1000px;
   padding-top: 10%;
   margin: 0 auto;
 }
