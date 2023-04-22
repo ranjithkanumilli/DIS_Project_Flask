@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TvShows</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/style.css') }}">
+</head>
+
+<body>
+    <div class="navbar">
+        <nav>
+            <input type="checkbox" id="show-search">
+            <input type="checkbox" id="show-menu">
+            <label for="show-menu" class="menu-icon"><img src="static/images/icons/burger-menu.png" alt=""></i></label>
+            <div class="content">
+                <div class="logo"><a href="{{ url_for('home') }}">MoviesNow</a></div>
+                <ul class="links">
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('movies') }}">Movies</a></li>
+                    <li><a href="#">TvShows</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="{{ url_for('chart') }}">chart</a></li>
+
+                </ul>
+            </div>
+            <label for="show-search" class="search-icon"><img src="static/images/icons/search.png" alt=""></label>
+            <form action="#" class="search-box" id="form">
+                <input type="text" id="search" placeholder="Type Something to Search..." required>
+                <button type="submit" class="go-icon"><img src="static/images/icons/right-arrowtail.png" alt=""></i></button>
+            </form>
+        </nav>
+    </div>
+    <div>
+        tvshow
+    </div>
+    <div class="TvShowsPage-title">
+        <h2>TvShows</h2>
+    </div>
+
+    <div id="tags">
+        <div class="tag">Action</div>
+        <div class="tag">adventure</div>
+        <div class="tag">horror</div>
+        <div class="tag">comedy</div>
+    </div>
+    <section class="movies-page">
+    </section>
+
+
+
+</body>
+<footer>
+    <div class="footer-container">
+        MoviesNow
+    </div>
+
+</footer>
+<script src="static/js/scripttv.js"></script>
+</html>

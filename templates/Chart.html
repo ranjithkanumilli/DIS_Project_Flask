@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Rated Movies Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/style.css') }}">
+</head>
+
+<body>
+    <div class="navbar">
+        <nav>
+            <input type="checkbox" id="show-search" />
+            <input type="checkbox" id="show-menu" />
+            <label for="show-menu" class="menu-icon"><img src="static/images/icons/burger-menu.png" alt=""></i></label>
+            <div class="content">
+                <div class="logo"><a href="{{ url_for('home') }}">MoviesNow</a></div>
+                <ul class="links">
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('movies') }}">Movies</a></li>
+                    <li><a href="{{ url_for('tvshows') }}">TvShows</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="#">chart</a></li>
+                </ul>
+            </div>
+            <label for="show-search" class="search-icon"><img src="static/images/icons/search.png" alt=""></label>
+            <form action="#" class="search-box" id="form">
+                <input type="text" id="search" placeholder="Type Something to Search..." required>
+                <button type="submit" class="go-icon"><img src="static/images/icons/right-arrowtail.png" alt=""></i></button>
+            </form>
+        </nav>
+    </div>
+
+    <div class="charts">
+        <div class="chart-item">
+            <p>Top Rated Movies trending this week</p>
+            <canvas id="top-rated-movies-chart"></canvas>
+        </div>
+        <div class="chart-item">
+            <p>Highest grossing movies of all time</p>
+            <canvas id="highest-grossing-movies-chart"></canvas>
+        </div>
+        <div>
+            Proportion of popular Genres
+        </div>
+        <div class="chart-item">
+            <canvas id="pie-chart"></canvas>
+        </div>
+    </div>
+
+    
+</body>
+<script src="static/js/Chart.js"></script>
+
+</html>
