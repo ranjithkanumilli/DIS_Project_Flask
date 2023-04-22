@@ -182,7 +182,14 @@ form.addEventListener('submit', (e) => {
   }
 })
 
+const searchIcon = document.querySelector('.search-icon');
+  const searchInput = document.querySelector('#search');
 
+  searchIcon.addEventListener('click', () => {
+    searchInput.focus();
+  });
+
+  
 
 // carousel hero - home page
 
@@ -206,7 +213,7 @@ function generateCarouselItems(data) {
       </div>
     `;
   });
-  carouselContainerhero.innerHTML= carouselItemsHTML;
+  carouselContainerhero.innerHTML = carouselItemsHTML;
 }
 
 

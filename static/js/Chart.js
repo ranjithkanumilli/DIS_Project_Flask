@@ -228,7 +228,7 @@ form.addEventListener('submit', (e) => {
 
     if (searchTerm) {
 
-        window.location.href = `../Pages/moviesPage.html?search=${searchTerm}`;
+        window.location.href = `/movies?search=${searchTerm}`;
         // getTrendingMovies(searchURL + '&query=' + searchTerm)
     }
 })

@@ -11,17 +11,16 @@ const actionButton = document.getElementsByClassName("action-buttons")[0];
 const urlParams = new URLSearchParams(window.location.search);
 const movieid = urlParams.get("id");
 const type = urlParams.get("type");
-console.log(type)
 productdetails.innerHTML = "";
 actionButton.innerHTML = "";
-console.log(`${BASE_URL}/${type}/${movieid}?${API_KEY}&language=en-US&append_to_response=videos`)
+
 // Fetch the movie details from your API or database
 fetch(
     `${BASE_URL}/${type}/${movieid}?${API_KEY}&language=en-US&append_to_response=videos`
 )
     .then((response) => response.json())
     .then((data) => {
-        const youtubeKey = data.videos.results[0]?.key ? data.videos.results[0]?.key : '#';;
+        const youtubeKey = data.videos.results[0]?.key ? data.videos.results[0]?.key : '#';
         // Construct YouTube link
         const youtubeLink = `https://www.youtube.com/watch?v=${youtubeKey}`;
 
@@ -54,3 +53,26 @@ fetch(
     .catch((error) => {
         console.error("Error fetching movie details:", error);
     });
+
+
+const searchURL = BASE_URL + '/search/movie?' + API_KEY;
+const form = document.getElementById('form');
+const search = document.getElementById('search');
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const searchTerm = search.value;
+
+    if (searchTerm) {
+
+        window.location.href = `/movies?search=${searchTerm}`;
+        // getTrendingMovies(searchURL + '&query=' + searchTerm)
+    }
+})
+
+const searchIcon = document.querySelector('.search-icon');
+  const searchInput = document.querySelector('#search');
+
+  searchIcon.addEventListener('click', () => {
+    searchInput.focus();
+  });
