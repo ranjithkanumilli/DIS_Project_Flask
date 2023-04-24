@@ -16,7 +16,8 @@
         <nav>
             <input type="checkbox" id="show-search">
             <input type="checkbox" id="show-menu">
-            <label for="show-menu" class="menu-icon"><img src="static/images/icons/burger-menu.png" alt="burger menu"></i></label>
+            <label for="show-menu" class="menu-icon"><img src="static/images/icons/burger-menu.png"
+                    alt="burger menu"></i></label>
             <div class="content">
                 <div class="logo"><a href="{{ url_for('home') }}">MoviesNow</a></div>
                 <ul class="links">
@@ -27,10 +28,12 @@
                     <li><a href="{{ url_for('chart') }}">chart</a></li>
                 </ul>
             </div>
-            <label for="show-search" class="search-icon"><img src="static/images/icons/search.png" alt="search icon"></label>
+            <label for="show-search" class="search-icon"><img src="static/images/icons/search.png"
+                    alt="search icon"></label>
             <form action="#" class="search-box" id="form">
                 <input type="text" id="search" placeholder="Type Something to Search..." required>
-                <button type="submit" class="go-icon"><img src="static/images/icons/right-arrowtail.png" alt="right arrow"></img></button>
+                <button type="submit" class="go-icon"><img src="static/images/icons/right-arrowtail.png"
+                        alt="right arrow"></img></button>
             </form>
         </nav>
     </div>
@@ -39,7 +42,17 @@
 
     <div class="carousel-hero">
         <div class="carousel-container-hero">
-            <!-- Dynamically generated carousel items -->
+            {% for item in movies %}
+            {% set backdrop_path = item.backdrop_path %}
+            {% set title = item.title %}
+            {% set id = item.id %}
+            <div class="carousel-hero-item">
+                <a href="#" onclick="window.location.href = '/product?id=' + '{{item.id}}' + '&type=movie';">
+                    <img src="{{ IMG_URL_ORIGINAL + backdrop_path }}">
+                </a>
+                <div class="carousel-hero-title">{{ title }}</div>
+            </div>
+            {% endfor %}
         </div>
         <a class="carousel-hero-prev">&#10094;</a>
         <a class="carousel-hero-next">&#10095;</a>
@@ -53,14 +66,32 @@
 
         <div class="carousel">
             <div class="carousel-container">
+                {% for item in movies %}
+                {% set title = item.title %}
+                {% set poster_path = item.poster_path %}
+                {% set vote_average = item.vote_average %}
+                {% set id = item.id %}
+                <div class="carousel-item">
+                    <a href="#" onclick="window.location.href = '/product?id=' + '{{item.id}}' + '&type=movie';">
+                        <img src="{{ IMG_URL + poster_path }}" alt="{{ title }}">
+                    </a>
+                    <p>{{ title }}</p>
+                    <p>imdb:{{ vote_average }}</p>
+                </div>
+                {% endfor %}
 
             </div>
 
         </div>
-        <button class="prev-button"><img class="arrowimg" src="static/images/icons/left-arrow.png" alt="left arrow"></button>
-        <button class="next-button"><img class="arrowimg" src="static/images/icons/right-arrow.png" alt="right arrow"></button>
+        <button class="prev-button"><img class="arrowimg" src="static/images/icons/left-arrow.png"
+                alt="left arrow"></button>
+        <button class="next-button"><img class="arrowimg" src="static/images/icons/right-arrow.png"
+                alt="right arrow"></button>
         </div>
     </section>
+
+
+
 
     <section class="movies">
         <div class="movies-title">
@@ -69,14 +100,30 @@
 
         <div class="carousel">
             <div class="carousel-container-tv">
-
+                {% for item in tv %}
+                {% set title = item.title %}
+                {% set poster_path = item.poster_path %}
+                {% set vote_average = item.vote_average %}
+                {% set id = item.id %}
+                <div class="carousel-item">
+                    <a href="#" onclick="window.location.href = '/product?id=' + '{{item.id}}' + '&type=tv';">
+                        <img src="{{ IMG_URL + poster_path }}" alt="{{ title }}">
+                    </a>
+                    <p>{{ title }}</p>
+                    <p>imdb:{{ vote_average }}</p>
+                </div>
+                {% endfor %}
             </div>
 
         </div>
-        <button class="prev-button-tv"><img class="arrowimg" src="static/images/icons/left-arrow.png" alt="left arrow"></button>
-        <button class="next-button-tv"><img class="arrowimg" src="static/images/icons/right-arrow.png" alt="right arrow"></button>
+        <button class="prev-button-tv"><img class="arrowimg" src="static/images/icons/left-arrow.png"
+                alt="left arrow"></button>
+        <button class="next-button-tv"><img class="arrowimg" src="static/images/icons/right-arrow.png"
+                alt="right arrow"></button>
         </div>
     </section>
+
+
 
 
     <!-- footer -->

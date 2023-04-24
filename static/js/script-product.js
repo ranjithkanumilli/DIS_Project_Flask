@@ -71,8 +71,8 @@ form.addEventListener('submit', (e) => {
 })
 
 const searchIcon = document.querySelector('.search-icon');
-  const searchInput = document.querySelector('#search');
+const searchInput = document.querySelector('#search');
 
-  searchIcon.addEventListener('click', () => {
+searchIcon.addEventListener('click', () => {
     searchInput.focus();
-  });
+});
