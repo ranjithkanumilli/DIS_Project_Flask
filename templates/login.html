@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TvShows</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/style.css') }}">
+    <title>Login</title>
 </head>
 
 <body>
+    <!-- navigation bar -->
     <div class="navbar">
         <nav>
             <input type="checkbox" id="show-search">
@@ -26,7 +27,7 @@
                     <li><a href="{{ url_for('about') }}">About</a></li>
                 </ul>
             </div>
-           
+            
             <label for="show-search" class="search-icon"><img src="static/images/icons/search.png"
                     alt="search icon"></label>
             <form action="#" class="search-box" id="form">
@@ -45,31 +46,23 @@
             </div>
         </nav>
     </div>
-    </div>
-    <div>
-        tvshow
-    </div>
-    <div class="moviesPage-title">
-        <h2>TV Shows</h2>
-    </div>
+    <h1>Login Page</h1>
+    <div class="login-form">
+        <div class="login-header">
+            <p>Welcome to MoviesNow , Login to access your favourites!</p>
+        </div>
 
-    <div id="tags">
-        <div class="tag">Action</div>
-        <div class="tag">adventure</div>
-        <div class="tag">horror</div>
-        <div class="tag">comedy</div>
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            {{ form.username }}
+            {{ form.password }}
+            {{ form.submit }}
+        </form>
+
     </div>
-    <section class="movies-page">
-    </section>
-
-
-
+    <div class="link-register">
+        <a href="{{ url_for('register') }}">Don't have an account? Sign Up</a>
+    </div>
 </body>
-<footer>
-    <div class="footer-container">
-        MoviesNow
-    </div>
 
-</footer>
-<script src="static/js/scripttv.js"></script>
 </html>

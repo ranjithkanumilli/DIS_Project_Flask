@@ -24,10 +24,11 @@
                     <li><a href="#">Home</a></li>
                     <li><a href="{{ url_for('movies') }}">Movies</a></li>
                     <li><a href="{{ url_for('tvshows') }}">TvShows</a></li>
+                    <li><a href="{{ url_for('chart') }}">Analytics</a></li>
                     <li><a href="{{ url_for('about') }}">About</a></li>
-                    <li><a href="{{ url_for('chart') }}">chart</a></li>
                 </ul>
             </div>
+            
             <label for="show-search" class="search-icon"><img src="static/images/icons/search.png"
                     alt="search icon"></label>
             <form action="#" class="search-box" id="form">
@@ -35,6 +36,15 @@
                 <button type="submit" class="go-icon"><img src="static/images/icons/right-arrowtail.png"
                         alt="right arrow"></img></button>
             </form>
+
+            <div class="dropdown">
+                <button class="dropbtn">
+                    <img src="static/images/icons/user.png" alt="user"></button>
+                <div class="dropdown-content">
+                    <a href="{{ url_for('login') }}">Login</a>
+                    <a href="{{url_for('logout')}}">logout</a>
+                </div>
+            </div>
         </nav>
     </div>
 

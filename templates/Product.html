@@ -15,23 +15,35 @@
         <nav>
             <input type="checkbox" id="show-search">
             <input type="checkbox" id="show-menu">
-            <label for="show-menu" class="menu-icon"><img src="static/images/icons/burger-menu.png" alt=""></i></label>
+            <label for="show-menu" class="menu-icon"><img src="static/images/icons/burger-menu.png"
+                    alt="burger menu"></i></label>
             <div class="content">
                 <div class="logo"><a href="{{ url_for('home') }}">MoviesNow</a></div>
                 <ul class="links">
                     <li><a href="{{ url_for('home') }}">Home</a></li>
                     <li><a href="{{ url_for('movies') }}">Movies</a></li>
                     <li><a href="{{ url_for('tvshows') }}">TvShows</a></li>
+                    <li><a href="{{ url_for('chart') }}">Analytics</a></li>
                     <li><a href="{{ url_for('about') }}">About</a></li>
-                    <li><a href="{{ url_for('chart') }}">chart</a></li>
-
                 </ul>
             </div>
-            <label for="show-search" class="search-icon"><img src="static/images/icons/search.png" alt=""></label>
+          
+            <label for="show-search" class="search-icon"><img src="static/images/icons/search.png"
+                    alt="search icon"></label>
             <form action="#" class="search-box" id="form">
                 <input type="text" id="search" placeholder="Type Something to Search..." required>
-                <button type="submit" class="go-icon"><img src="static/images/icons/right-arrowtail.png" alt=""></i></button>
+                <button type="submit" class="go-icon"><img src="static/images/icons/right-arrowtail.png"
+                        alt="right arrow"></img></button>
             </form>
+
+            <div class="dropdown">
+                <button class="dropbtn">
+                    <img src="static/images/icons/user.png" alt="user"></button>
+                <div class="dropdown-content">
+                    <a href="{{ url_for('login') }}">Login</a>
+                    <a href="{{url_for('logout')}}">logout</a>
+                </div>
+            </div>
         </nav>
     </div>
     <!-- details of the selected movie -->
